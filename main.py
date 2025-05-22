@@ -7,10 +7,14 @@ from prompt import mcq_prompt
 from text_extractor import extract_text
 from file_export import save_txt, save_pdf
 
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.getenv("GROQ_API")
 
 # LangChain setup
 llm = ChatGroq(
-    api_key="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",  # Replace with your API key
+    api_key=api_key,  # Replace with your API key
     model="llama-3.3-70b-versatile",
     temperature=0.0
 )
